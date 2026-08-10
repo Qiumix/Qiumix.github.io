@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Archives",
+    "summary": "This is a description:)",
+    "content": " Archives20262026-08-02 Linux命令行词典2026-07-24 Nvidia Waydroid配置maa运行明日方舟2026-07-18 从零开始的neovim0.12(1) -- Bootstrap",
+    "permalink": "/archives/",
+    "tags": []
+  }
+,
+  {
+    "title": "Contact",
+    "summary": "联系方式",
+    "content": "󰛋 ContactEmail j487428862@gmail.comGitHub github.com/QiumixBlog qiumix.github.io",
+    "permalink": "/contact/",
+    "tags": []
+  }
+,
+  {
+    "title": "404",
+    "summary": "页面未找到",
+    "content": "404页面未找到← 返回首页",
+    "permalink": "/error/",
+    "tags": []
+  }
+,
+  {
+    "title": "Friends",
+    "summary": "友链",
+    "content": " Friends博主: Qiumix标题: Qiumix's blog~介绍: Neko of witch网站: https://qiumix.github.io头像: https://qiumix.github.io/images/avator.png",
+    "permalink": "/friends/",
+    "tags": []
+  }
+,
+  {
+    "title": "Home",
+    "summary": "This is a description:)",
+    "content": "Hi, I’m Qiumix一只互联网上随机游荡的猫猫魔女，对各个领域感兴趣，喜欢折腾各种小玩具主力系统是 Arch Linux, WM 是 niri, 目前在用的编辑器是 Neovim",
+    "permalink": "/",
+    "tags": []
+  }
+,
+  {
+    "title": "Linux命令行词典",
+    "summary": "Linux命令行中使用词典",
+    "content": "Linux命令行词典",
+    "permalink": "/posts/dict/",
+    "tags": ["linux","cli"]
+  }
+,
+  {
+    "title": "Blogs",
+    "summary": "全部博客",
+    "content": " BlogsLinux命令行词典Linux命令行中使用词典 2026-08-02 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟 2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim 2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/posts/",
+    "tags": []
+  }
+,
+  {
+    "title": "Neovim 主题系列",
+    "summary": "neovim主题系列博客",
+    "content": "Neovim 主题系列共 1 篇文章从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim 2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/posts/neovim/",
+    "tags": []
+  }
+,
+  {
+    "title": "从零开始的neovim0.12(1) -- Bootstrap",
+    "summary": "使用zpack配置一个基础的neovim",
+    "content": " 目录zpack.nvimbootstrap配置好插件管理器后的世界从零开始的neovim0.12(1) -- Bootstrapzpack.nvim众所周知neovim0.12中加入了伟大的内置包管理器 vim.pack。寒假时候看了 tduyng的博客 后从 kickstart + lazy.nvim (现在的kickstart也是vim.pack了) 迁移到了 vim.pack。然而博主在使用了三个月之后发现没有自带的懒加载还是太难受了, 需要自己手写懒加载事件，多几个懒加载的插件后简直地狱。于是博主在朋友的推荐下又使用了三个月的 lz.n 作为懒加载器，不过还是要自己手搓各种spec才能比较通用。那么，有没有什么通用的方案呢？难道我们还是继续用lazy比较好吗？于是我选择了 zpack.nvim, 个人感觉是 lazy.nvim 的lite版本，但是大部分功能都是有的，字段也基本通用。bootstrap function copy_code(button) { const code = button.parentElement.querySelector('code'); const text = code.getAttribute('data-original-text') || code.innerText; navigator.clipboard.writeText(text).then(() => { button.textContent = '好啦'; setTimeout(() => button.textContent = '复制', 2000); }); } function fold_code(button) { const code = button.parentElement.querySelector('code'); const next_fold_state = button.textContent; if (next_fold_state == '折叠') { if (!code.hasAttribute('data-original')) { code.setAttribute('data-original', code.innerHTML); code.setAttribute('data-original-text', code.innerText); } const lines = code.getAttribute('data-original-text').split('\n'); code.textContent = lines[0] || ''; button.textContent = '展开'; } else { code.innerHTML = code.getAttribute('data-original'); button.textContent = '折叠'; } } vim.pack.add({ { src = \"https://github.com/zuqini/zpack.nvim\" } })vim.g.mapleader = \" \" -- <Space> as leader keyvim.g.maplocalleader = \",\" -- <,> as local leader (used by grug-far etc.)require(\"zpack\").setup({ defaults = { confirm = false, lazy = true, },})复制折叠只需要9行，如果在意的话也可以把setup里的参数去掉, 代码量远低于lazy那一坨手动操作git的代码。confirm是给vim.pack的参数，zpack 使用vim.pack来安装自身，这个boolean false的话会有个弹窗让你确认下载。defaults.lazy虽然文档没有写，但是实际上是存在的，实测通过 vim-startuptime -vimpath nvim -warmup 3 -count 40 | head -20 进行bench启动时间要低5毫秒左右(个人55插件的配置)配置好插件管理器后的世界安装好插件管理器后，嗯…，并没有任何变化。所以我们开始安装插件。在vim.pack中，插件在安装后会自动加载插件目录下plugin目录下面的lua和vim文件， 一般是定义各种事件和user command，这是第一步加载，由vim.pack的 load 函数完成，load的默认实现回去调用加载函数加载plugin/目录下的文件。 第二步是用户手动加载，方式是require(\"module_name\").setup(), setup只是一个约定好的函数名称，它接收一",
+    "permalink": "/posts/neovim/startup/",
+    "tags": ["neovim","programming","editor"]
+  }
+,
+  {
+    "title": "Nvidia Waydroid配置maa运行明日方舟",
+    "summary": "在n卡情况下配置maa-cli运行明日方舟",
+    "content": " 目录相关项目安装Waydroid配置maa展示Nvidia Waydroid配置maa运行明日方舟相关项目因为n卡的用户态驱动是闭源的, 在之前Waydroid一直不支持硬件渲染。然后今天我发现了这个项目, waydroid-nvidia，把容器内的vulkan api的调用转发到宿主机处理。安装Waydroid我用的是Arch Linux，所以使用了aur。 首先paru -S waydroid-nvidia-bin安装, 似乎写的不咋的，没有正确处理依赖，自己手动pacman安装缺失依赖即可。然后按照项目教程初始化。 function copy_code(button) { const code = button.parentElement.querySelector('code'); const text = code.getAttribute('data-original-text') || code.innerText; navigator.clipboard.writeText(text).then(() => { button.textContent = '好啦'; setTimeout(() => button.textContent = '复制', 2000); }); } function fold_code(button) { const code = button.parentElement.querySelector('code'); const next_fold_state = button.textContent; if (next_fold_state == '折叠') { if (!code.hasAttribute('data-original')) { code.setAttribute('data-original', code.innerHTML); code.setAttribute('data-original-text', code.innerText); } const lines = code.getAttribute('data-original-text').split('\n'); code.textContent = lines[0] || ''; button.textContent = '展开'; } else { code.innerHTML = code.getAttribute('data-original'); button.textContent = '折叠'; } } waydroid initsudo waydroid-nvidia-setupsudo systemctl enable --now waydroid-container.servicesystemctl --user enable --now wd-venus.servicewaydroid session start复制折叠这一步过后，我们应该有一个Waydroid的desktop文件了，可以直接启动。但是目前还是玩不了明日方舟的，Waydroid是基于容器的，共用的内核，默认没有转译层。 而安卓部分软件没有x86架构支持(粥粥好像去年周年庆之前还是有x86支持的, 优化后就没了)，需要安装转译工具。首先克隆项目。git clone https://github.com/casualsnek/waydroid_script进入后使用python创建虚拟环境并安装依赖，然后安装转译工具。 function copy_code(button) { const code = button.parentElement.querySelector('code'); const text = code.getAttribute('data-original-text') || code.innerText; navigator.clipboard.writeText(text).then(() => { button.textContent = '好啦'; setTimeout(() => button.textContent = '复制', 2000); }); } function fold_code(button) { const code = button.parentElement.querySelector('code'); const next_fold_state = button.textContent; if (next_fold_state == '折叠') { if (!code.hasAttribute('data-original')) { code.setAt",
+    "permalink": "/posts/waydroid_arknights/",
+    "tags": ["game","linux","wayland"]
+  }
+,
+  {
+    "title": "Series",
+    "summary": "This is a description:)",
+    "content": " SeriesNeovim 主题系列 (1)",
+    "permalink": "/series/",
+    "tags": []
+  }
+,
+  {
+    "title": "Tags",
+    "summary": "This is a description:)",
+    "content": " Tagscli (1)editor (1)game (1)linux (2)neovim (1)programming (1)wayland (1)Linux命令行词典Linux命令行中使用词典 2026-08-02 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟 2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim 2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/tags/",
+    "tags": []
+  }
+
+]

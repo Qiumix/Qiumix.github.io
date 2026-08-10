@@ -1,0 +1,246 @@
+#import "/templates/post.typ": post
+
+#let args = (
+  title: "Hello World —— Typst Test",
+  date: "2026-07-17", // YYYY-MM-DD
+  update: "2026-07-19", // 更新日期（可选）
+  summary: "第一篇博客，测试Typst",
+  author: "Qiumix", // 默认取 tola.toml 的 author
+  draft: false, // true = 不发布
+  tags: ("hello", "blog", "typst"), // 标签数组
+  // === 链接相关 ===
+  // permalink: "/test-url/", // 自定义永久链接（可选）
+  // aliases: ("/old-url/",), // URL 别名，自动生成重定向（可选）
+  // === 布局控制 ===
+  global-header: true, // false = 不注入全局样式/脚本（404 页用）
+  outline: true, // false = 隐藏目录
+  // === 自定义字段（随意加） ===
+  pinned: false, // 置顶
+  series: "系列名", // 归属系列
+  reading-time: 5, // 阅读时间（分钟）
+  order: 1, // 排序序号
+  featured: false, // 精选
+  domain: "programming", // 领域分类
+  page-kind: "post", // 页面种类（"series" 表示系列封面）
+  todo: false, // 待完成标记
+  next: none, // 手动指定下一篇（用 pages() 查）
+  prev: none, // 手动指定上一篇（用 pages() 查）
+)
+#show: post.with(..args)
+
+= 文本样式
+
+*斜体* 和 _强调_ 和 ==划重点== 和 ~~删除线~~ 和 `行内代码`
+
+也可以用 #emph[强调] 和 #strong[加粗] 和 #underline[下划线] 函数。
+
+= 段落
+
+第一段落。
+
+第二段落。Lorem ipsum dolor sit amet.
+
+= 列表
+
+== 无序列表
+
+- 苹果
+- 香蕉
+  - 子项一
+  - 子项二
+- 橘子
+
+== 有序列表
+
++ 第一步
++ 第二步
++ 第三步
+
+== 术语列表
+
+/ 术语: 定义内容
+/ Typst: 基于标记的排版系统
+
+= 链接
+
+#link("https://typst.app")[Typst 官网]
+
+= 数学公式
+
+行内公式: $x^2 + y^2 = z^2$
+
+块级公式:
+
+$ sum_(i=1)^n i = (n(n+1))/2 $
+
+$ integral_0^infinity e^(-x) dif x = 1 $
+
+$ lim_(x -> 0) sin(x)/x = 1 $
+
+$ mat(1, 0; 0, 1) $
+
+= 表格
+
+#table(
+  columns: 3,
+  [名称], [年龄], [城市],
+  [小明], [18], [北京],
+  [小红], [20], [上海],
+)
+
+= 代码
+
+行内代码: 使用 `println("hello")` 输出。
+
+代码块（带语法高亮）:
+
+```python
+def hello(name):
+    print(f"Hello, {name}!")
+
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+    def greet(self):
+        return f"Hello, {self.name}!"
+
+g = Greeter("World")
+print(g.greet())
+```
+
+```rust
+fn main() {
+    let msg = "Hello, World!";
+    println!("{}", msg);
+
+    let nums = vec![1, 2, 3, 4, 5];
+    let sum: i32 = nums.iter().sum();
+    println!("Sum: {}", sum);
+}
+```
+
+```javascript
+function fibonacci(n) {
+  if (n <= 1) return n
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+const arr = [1, 2, 3, 4, 5]
+const doubled = arr.map(x => x * 2)
+console.log(doubled)
+```
+
+```typst
+#let factorial(n) = {
+  if n <= 1 { 1 } else { n * factorial(n - 1) }
+}
+
+#for i in range(5) {
+  [#i! = #factorial(i)]
+}
+```
+
+```json
+{
+  "name": "Typst",
+  "version": "0.12.0",
+  "features": ["markup", "scripting", "typesetting"]
+}
+```
+
+```
+纯文本块，无语法高亮。
+```
+
+= 引用
+
+> 这是一段引用。
+>
+> 可以包含多行。
+
+= 变量与定义
+
+#let author = "Qiumix"
+#let year = 2026
+
+本文作者是 #author，发表于 #year 年。
+
+= 条件
+
+#let score = 85
+#if score >= 90 {
+  [优秀]
+} else if score >= 60 {
+  [及格]
+} else {
+  [不及格]
+}
+
+= 循环
+
+#for i in range(1, 6) [
+  #i ...
+]
+
+= 函数
+
+#let add(a, b) = a + b
+
+1 + 2 = #add(1, 2)
+
+#let greet(name, greeting: "你好") = [
+  #greeting， #name！
+]
+
+#greet("小明")
+#greet("小红", greeting: "Hello")
+
+= 字典与数组
+
+#let person = (
+  name: "Qiumix",
+  age: 20,
+  city: "Beijing",
+)
+
+姓名: #person.name
+年龄: #person.age
+
+#let fruits = ("苹果", "香蕉", "橘子")
+
+#for fruit in fruits [
+  #fruit、
+]
+
+= 盒子与布局
+
+#box(stroke: 1pt + red, inset: 8pt)[带边框的盒子]
+
+#box(fill: blue.transparentize(80%), inset: 8pt)[带背景色的盒子]
+
+= 对齐
+
+
+
+= 多级标题
+
+== 二级标题
+
+=== 三级标题
+
+= 符号
+
+数学符号: $->$ $=>$ $alpha$ $beta$ $gamma$ $infinity$ $partial$
+
+$
+  mat(
+    1, 2, ..., 10;
+    2, 2, ..., 10;
+    dots.v, dots.v, dots.down, dots.v;
+    10, 10, ..., 10;
+  )
+$
+
+= 图片
+
+#html.img(src: "/images/avator.png", alt: "头像")
