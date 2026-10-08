@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Archives",
+    "summary": "This is a description:)",
+    "content": " Archives20262026-08-17 Linux命令行词典2026-07-24 Nvidia Waydroid配置maa运行明日方舟2026-07-18 从零开始的neovim0.12(1) -- Bootstrap",
+    "permalink": "/archives/",
+    "tags": []
+  }
+,
+  {
+    "title": "Contact",
+    "summary": "联系方式",
+    "content": "b ContactEmail j487428862@gmail.comGitHub github.com/QiumixBlog qiumix.github.io",
+    "permalink": "/contact/",
+    "tags": []
+  }
+,
+  {
+    "title": "404",
+    "summary": "页面未找到",
+    "content": "404页面未找到← 返回首页",
+    "permalink": "/error/",
+    "tags": []
+  }
+,
+  {
+    "title": "Friends",
+    "summary": "友链",
+    "content": " Friends博主: Qiumix标题: Qiumix's blog~介绍: Neko of witch网站: https://qiumix.github.io头像: https://qiumix.github.io/images/avator.png",
+    "permalink": "/friends/",
+    "tags": []
+  }
+,
+  {
+    "title": "Home",
+    "summary": "This is a description:)",
+    "content": "Hi, I’m Qiumix一只互联网上随机游荡的猫猫魔女，对各个领域感兴趣，喜欢折腾各种小玩具主力系统是 Arch Linux, WM 是 niri, 目前在用的编辑器是 Neovim",
+    "permalink": "/",
+    "tags": []
+  }
+,
+  {
+    "title": "Linux命令行词典",
+    "summary": "Linux命令行中使用词典",
+    "content": "Linux命令行词典使用了 kd，这是一个go编写的程序，支持daemon模式来提升性能。直接kd $word_to_query 就可以使用了。function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}kd -h NAME: kd - A crystal clean command-line dictionary. USAGE: kd [global options] VERSION: v0.0.14 AUTHOR: kmz <valesail7@gmail.com> GLOBAL OPTIONS: --text TEXT, -t TEXT translate long query TEXT with e.g. --text=\"Long time ago\" 翻译长句 --json output as JSON --nocache, -n don't use cached result 不使用本地词库，查询网络结果 --theme value, -T value choose the color theme for current query 选择颜色主题，仅当前查询生效 (default: temp) --force, -f forcely update (only after --update) 强制更新（仅搭配--update） --speak, -s (experimental) read the word with speaker program 单词朗读 --daemon ensure/start the daemon process 启动守护进程 --update check and update kd client 更新kd的可执行文件 --generate-config generate config sample 生成配置文件，Linux/Mac默认地址为~/.config/kd.toml，Win为~\kd.toml --edit-config edit configuration file with the default editor 用默认编辑器打开配置文件 --help, -h show help --version, -v print the version复制 折叠然后默认情况下无法模糊查询，在README.md里还是todo状态。但是我们就做不到模糊查询了吗？这个词典会从网络上下载一个SQLite词典数据库到 /.cache/kdcache/kd_data.db, 既然是这种通用的数据存储方式，那我们的操作空间就很多了。进入数据库后能看到表的结构是这样的function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`dat",
+    "permalink": "/posts/dict/",
+    "tags": ["linux","cli"]
+  }
+,
+  {
+    "title": "Blogs",
+    "summary": "全部博客",
+    "content": " BlogsLinux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/posts/",
+    "tags": []
+  }
+,
+  {
+    "title": "Neovim 主题系列",
+    "summary": "neovim主题系列博客",
+    "content": "Neovim 主题系列共 1 篇文章从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/posts/neovim/",
+    "tags": []
+  }
+,
+  {
+    "title": "从零开始的neovim0.12(1) -- Bootstrap",
+    "summary": "使用zpack配置一个基础的neovim",
+    "content": "目录zpack.nvimbootstrap配置好插件管理器后的世界从零开始的neovim0.12(1) -- Bootstrapzpack.nvim众所周知neovim0.12中加入了伟大的内置包管理器 vim.pack。寒假时候看了 tduyng的博客 后从 kickstart + lazy.nvim (现在的kickstart也是vim.pack了) 迁移到了 vim.pack。然而博主在使用了三个月之后发现没有自带的懒加载还是太难受了, 需要自己手写懒加载事件，多几个懒加载的插件后简直地狱。于是博主在朋友的推荐下又使用了三个月的 lz.n 作为懒加载器，不过还是要自己手搓各种spec才能比较通用。那么，有没有什么通用的方案呢？难道我们还是继续用lazy比较好吗？于是我选择了 zpack.nvim, 个人感觉是 lazy.nvim 的lite版本，但是大部分功能都是有的，字段也基本通用。bootstrapfunction copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}vim.pack.add({ { src = \"https://github.com/zuqini/zpack.nvim\" } }) vim.g.mapleader = \" \" -- <Space> as leader key vim.g.maplocalleader = \",\" -- <,> as local leader (used by grug-far etc.) require(\"zpack\").setup({ defaults = { confirm = false, lazy = true, }, })复制 折叠只需要9行，如果在意的话也可以把setup里的参数去掉, 代码量远低于lazy那一坨手动操作git的代码。confirm是给vim.pack的参数，zpack 使用vim.pack来安装自身，这个boolean false的话会有个弹窗让你确认下载。defaults.lazy是插件默认是否启用懒加载的参数，和 lazy.nvim 不同, zpack.nvim 默认是不对插件懒加载的，所以我们需要设置这个参数为lazy配置好插件管理器后的世界安装好插件管理器后，嗯…，并没有任何变化。 所以我们开始安装插件。在vim.pack中，插件在安装后会自动加载插件目录下plugin目录下面的lua和vim文件， 一般是定义各种事件和user command，这是第一步加载，由vim.pack的 load 函数完成，load的默认实现回去调用加载函数加载plugin/目录下的文件。 第二步是用户手动加载，方式是require(\"module_name\").setup(), setup只是一个约定好的函数名称，它接收一个插件规定好的spec，例如我们刚刚 zpack 的里面的{}和里面的字段就是一个zpack.Config类型(zpack 作为一个插件管理器同时也还是一个插件喵)。 当然很多插件只需要第一步足矣了，而有些插件因为 lazy 加载或者load被替换等原因没有第一步加载，只加载了第二步也可能出问题。但是，手动require是比较朴素的方式，它会按照插件配置的方式直接加载 $${plugin_dir}/lua 下面的代码文件(实际上是所有的插件的lua目录都被加进了 rtp , require会找 rtp 下对应的模块，require函数的参数是lu",
+    "permalink": "/posts/neovim/startup/",
+    "tags": ["neovim","programming","editor"]
+  }
+,
+  {
+    "title": "Nvidia Waydroid配置maa运行明日方舟",
+    "summary": "在n卡情况下配置maa-cli运行明日方舟",
+    "content": "目录相关项目安装Waydroid配置maa展示Nvidia Waydroid配置maa运行明日方舟相关项目因为n卡的用户态驱动是闭源的, 在之前Waydroid一直不支持硬件渲染。然后今天我发现了这个项目, waydroid-nvidia，把容器内的vulkan api的调用转发到宿主机处理。安装Waydroid我用的是Arch Linux，所以使用了aur。 首先paru -S waydroid-nvidia-bin安装, 似乎写的不咋的，没有正确处理依赖，自己手动pacman安装缺失依赖即可。然后按照项目教程初始化。function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}waydroid init sudo waydroid-nvidia-setup sudo systemctl enable --now waydroid-container.service systemctl --user enable --now wd-venus.service waydroid session start复制 折叠这一步过后，我们应该有一个Waydroid的desktop文件了，可以直接启动。但是目前还是玩不了明日方舟的，Waydroid是基于容器的，共用的内核，默认没有转译层。 而安卓部分软件没有x86架构支持(粥粥好像去年周年庆之前还是有x86支持的, 优化后就没了)，需要安装转译工具。首先克隆项目。git clone https://github.com/casualsnek/waydroid_script进入后使用python创建虚拟环境并安装依赖，然后安装转译工具。function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}python3 -m venv venv venv/bin/pip install -r requirements.txt sudo venv/bin/python3 main.py install libhoudini复制 折叠使用waydroid session stop关闭Waydroid, 然后",
+    "permalink": "/posts/waydroid_arknights/",
+    "tags": ["game","linux","wayland"]
+  }
+,
+  {
+    "title": "Series",
+    "summary": "This is a description:)",
+    "content": " SeriesNeovim 主题系列 (1)",
+    "permalink": "/series/",
+    "tags": []
+  }
+,
+  {
+    "title": "Tags",
+    "summary": "This is a description:)",
+    "content": " Tagscli (1)editor (1)game (1)linux (2)neovim (1)programming (1)wayland (1)Linux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
+    "permalink": "/tags/",
+    "tags": []
+  }
+
+]
