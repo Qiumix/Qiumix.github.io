@@ -2,7 +2,7 @@
   {
     "title": "Archives",
     "summary": "This is a description:)",
-    "content": " Archives20262026-10-19 从零开始的neovim0.12(2) -- LSP2026-08-17 Linux命令行词典2026-07-24 Nvidia Waydroid配置maa运行明日方舟2026-07-18 从零开始的neovim0.12(1) -- Bootstrap",
+    "content": " Archives20262026-10-23 将helix配置打包进可执行文件2026-10-19 从零开始的neovim0.12(2) -- LSP2026-08-17 Linux命令行词典2026-07-24 Nvidia Waydroid配置maa运行明日方舟2026-07-18 从零开始的neovim0.12(1) -- Bootstrap",
     "permalink": "/archives/",
     "tags": []
   }
@@ -48,9 +48,17 @@
   }
 ,
   {
+    "title": "将helix配置打包进可执行文件",
+    "summary": "在linux上，利用AppImage将helix包与用户配置打包进单文件",
+    "content": "目录IntroStartup好麻烦啊将helix配置打包进可执行文件Intro我们在服务器上的时候，默认的vim/nvim比较难用，我们一般也不会去把自己的配置扒拉下来，毕竟要下载一大堆插件，而且还要给root用户配置一遍。这时候我们可以把目光放到helix，自带了很多vim/nvim需要插件才能实现的功能，比如picker和gw的easy motion，在几乎无配置的服务器场景很好用。but，可能我们会遇到无法使用包管理器，或者无法联网，甚至包管理器不提供helix的场景。另外一个问题是，我们的helix可能也做了很多配置，还要单独把config.toml给scp上去。这种情况下我们就可以考虑自己魔改AppImage版本的helix了。Startup首先通过下列命令下载目前最新的helix的AppImage的releases。function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}curl https://github.com/helix-editor/helix/releases/download/25.07.1/helix-25.07.1-x86_64.AppImage -o helix -L && chmod +x helix复制 折叠这里是25.07版本，虽然helix自己说会有26.04版本，但是已经过去半年了还是没有消息，所以这里用25.07。function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()=>{e.textContent=`好啦`,setTimeout(()=>e.textContent=`复制`,2e3)})}function fold_code(e){let t=e.parentElement.querySelector(`code`);e.textContent==`折叠`?(t.hasAttribute(`data-original`)||(t.setAttribute(`data-original`,t.innerHTML),t.setAttribute(`data-original-text`,t.innerText)),t.textContent=t.getAttribute(`data-original-text`).split(` `)[0]||``,e.textContent=`展开`):(t.innerHTML=t.getAttribute(`data-original`),e.textContent=`折叠`)}strings ./helix | grep GLIBC_复制 折叠返回结果是GLIBC_2.2.5，如此老旧的glibc版本需求应该和绝大部分x86_64的使用了glibc的linux机器兼容。然后我们function copy_code(e){let t=e.parentElement.querySelector(`code`),n=t.getAttribute(`data-original-text`)||t.innerText;navigator.clipboard.writeText(n).then(()",
+    "permalink": "/posts/helix_appimage/",
+    "tags": ["helix","linux","neovim","server"]
+  }
+,
+  {
     "title": "Blogs",
     "summary": "全部博客",
-    "content": " Blogs从零开始的neovim0.12(2) -- LSP在neovim中使用语言服务器2026-10-19 |neovimprogrammingeditorLinux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
+    "content": " Blogs将helix配置打包进可执行文件在linux上，利用AppImage将helix包与用户配置打包进单文件2026-10-23 |helixlinuxneovimserver从零开始的neovim0.12(2) -- LSP在neovim中使用语言服务器2026-10-19 |neovimprogrammingeditorLinux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
     "permalink": "/posts/",
     "tags": []
   }
@@ -98,7 +106,7 @@
   {
     "title": "Tags",
     "summary": "This is a description:)",
-    "content": " Tagscli (1)editor (2)game (1)linux (2)neovim (2)programming (2)wayland (1)从零开始的neovim0.12(2) -- LSP在neovim中使用语言服务器2026-10-19 |neovimprogrammingeditorLinux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
+    "content": " Tagscli (1)editor (2)game (1)helix (1)linux (3)neovim (3)programming (2)server (1)wayland (1)将helix配置打包进可执行文件在linux上，利用AppImage将helix包与用户配置打包进单文件2026-10-23 |helixlinuxneovimserver从零开始的neovim0.12(2) -- LSP在neovim中使用语言服务器2026-10-19 |neovimprogrammingeditorLinux命令行词典Linux命令行中使用词典2026-08-17 |linuxcliNvidia Waydroid配置maa运行明日方舟在n卡情况下配置maa-cli运行明日方舟2026-07-24 |gamelinuxwayland从零开始的neovim0.12(1) -- Bootstrap使用zpack配置一个基础的neovim2026-07-18 |neovimprogrammingeditor",
     "permalink": "/tags/",
     "tags": []
   }
